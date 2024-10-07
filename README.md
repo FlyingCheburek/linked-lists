@@ -1,2 +1,2 @@
 # linked-lists
- Implementation of the linked list datastructures in C and C++
+ Implementation of the linked list data structures in C and C++
