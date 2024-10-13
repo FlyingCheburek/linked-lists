@@ -103,7 +103,7 @@ Circle::SinglyList<T>::~SinglyList() {
 		tail = nullptr;
 		return;
 	}
-	Singly::Node<T>* head = tail->next, * temp = head->next;
+	Singly::Node<T>* head = tail->next, *temp = head->next;
 	do {
 		delete head;
 		head = temp;

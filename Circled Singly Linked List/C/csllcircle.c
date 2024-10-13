@@ -1,6 +1,5 @@
 #include "csllcircle.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 void sllcircle_destroy(SLLCircle* list){
 	if (!list->tail) return;
@@ -9,15 +8,15 @@ void sllcircle_destroy(SLLCircle* list){
 		list->tail = NULL;
 		return;
 	}
-	SLLNode* head = list->tail->next, *end = list->tail, *temp = head->next;
+	SLLNode* head = list->tail->next, * temp = head->next;
 	do {
 		free(head);
 		head = temp;
 		if (temp) temp = temp->next;
-	} while (head != end);
-	if (end) {
-		free(end);
-		end = NULL;
+	} while (head != list->tail);
+	if (list->tail) {
+		free(list->tail);
+		list->tail = NULL;
 	}
 }
 
