@@ -1,14 +1,14 @@
 extern "C" {
-	#include "csll.h"
-	#include "cdll.h"
-        #include "csllcircle.h"
-	#include "cdllcircle.h"
+#include "csll.h"
+#include "cdll.h"
+#include "csllcircular.h"
+#include "cdllcircular.h"
 };
 
 #include "sll.cpp"
 #include "dll.cpp"
-#include "sllcircle.cpp"
-#include "dllcircle.cpp"
+#include "sllcircular.cpp"
+#include "dllcircular.cpp"
 
 #include <iostream>
 
@@ -23,10 +23,10 @@ int main() {
 	Doubly::Node<int> _dllnode;
 	Doubly::List<int> _dll;
 
-	SLLCircle sllcircle = { 0 };
-	Circle::SinglyList<int> _sllcircle;
+	SLLCircular sllcircle = { 0 };
+	Circular::SinglyList<int> _sllcircle;
 
-	DLLCircle dllcircle = { 0 };
-	Circle::DoublyList<int> _dllcircle;
+	DLLCircular dllcircle = { 0 };
+	Circular::DoublyList<int> _dllcircle;
 	return 0;
 }

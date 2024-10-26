@@ -1,7 +1,7 @@
 #include "cdll.h"
 #include <stdlib.h>
 
-void dll_destroy(DLL* list){
+void dll_destroy(DLL* list) {
 	DLLNode* node;
 	while (list->head) {
 		node = list->head->next;
@@ -10,7 +10,7 @@ void dll_destroy(DLL* list){
 	}
 }
 
-void dll_push_front(DLL* list, const int value){
+void dll_push_front(DLL* list, const int value) {
 	DLLNode* node = (DLLNode*)malloc(sizeof(DLLNode));
 	node->data = value;
 	node->next = NULL;
@@ -23,7 +23,7 @@ void dll_push_front(DLL* list, const int value){
 	else list->head = list->tail = node;
 }
 
-void dll_push_back(DLL* list, const int value){
+void dll_push_back(DLL* list, const int value) {
 	DLLNode* node = (DLLNode*)malloc(sizeof(DLLNode));
 	node->data = value;
 	node->next = NULL;
@@ -36,7 +36,7 @@ void dll_push_back(DLL* list, const int value){
 	else list->head = list->tail = node;
 }
 
-void dll_pop_front(DLL* list){
+void dll_pop_front(DLL* list) {
 	if (!list->head) return;
 	if (list->head == list->tail) {
 		free(list->head);
@@ -48,7 +48,7 @@ void dll_pop_front(DLL* list){
 	list->head->pred = NULL;
 }
 
-void dll_pop_back(DLL* list){
+void dll_pop_back(DLL* list) {
 	if (!list->tail) return;
 	if (list->tail == list->head) {
 		free(list->tail);
@@ -60,7 +60,7 @@ void dll_pop_back(DLL* list){
 	list->tail->next = NULL;
 }
 
-void dll_delete_where(DLL* list, const int value){
+void dll_delete_where(DLL* list, const int value) {
 	if (!list->head) return;
 	if (list->head->data == value) dll_pop_front(list);
 	else if (list->tail->data == value) dll_pop_back(list);

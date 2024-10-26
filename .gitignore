@@ -1,1 +1,63 @@
-/.vs
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Visual Studio files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.vcxproj.FileListAbsolute
+*.db
+*.exe.recipe
+*.tlog
+*.idb
+*.pdb
+*.ilk
+*.txt
+*.lastbuildstate
+*.log
+*.vsidx
+*.lock
+*.suo
+*.aps
+*.ncp
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.ipch
+*.db-shm
+*.db-wal
+*.json
+*.sqlite
+*.wsuo

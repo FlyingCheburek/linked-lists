@@ -1,7 +1,7 @@
 #pragma once
 #include "dll.hpp"
 
-namespace Circle {
+namespace Circular {
 	template <class T>
 	class DoublyList {
 	private:

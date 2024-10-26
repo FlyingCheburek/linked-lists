@@ -1,7 +1,7 @@
-#include "csllcircle.h"
+#include "csllcircular.h"
 #include <stdlib.h>
 
-void sllcircle_destroy(SLLCircle* list){
+void sllcircular_destroy(SLLCircular* list) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next) {
 		free(list->tail);
@@ -20,7 +20,7 @@ void sllcircle_destroy(SLLCircle* list){
 	}
 }
 
-void sllcircle_push_front(SLLCircle* list, const int value){
+void sllcircular_push_front(SLLCircular* list, const int value) {
 	SLLNode* node = (SLLNode*)malloc(sizeof(SLLNode));
 	node->data = value;
 	node->next = NULL;
@@ -34,7 +34,7 @@ void sllcircle_push_front(SLLCircle* list, const int value){
 	}
 }
 
-void sllcircle_push_back(SLLCircle* list, const int value) {
+void sllcircular_push_back(SLLCircular* list, const int value) {
 	SLLNode* node = (SLLNode*)malloc(sizeof(SLLNode));
 	node->data = value;
 	node->next = NULL;
@@ -49,7 +49,7 @@ void sllcircle_push_back(SLLCircle* list, const int value) {
 	}
 }
 
-void sllcircle_pop_front(SLLCircle* list){
+void sllcircular_pop_front(SLLCircular* list) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next) {
 		free(list->tail);
@@ -62,14 +62,14 @@ void sllcircle_pop_front(SLLCircle* list){
 	}
 }
 
-void sllcircle_pop_back(SLLCircle* list){
+void sllcircular_pop_back(SLLCircular* list) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next) {
 		free(list->tail);
 		list->tail = NULL;
 	}
 	else {
-		SLLNode* node = list->tail->next, *head;
+		SLLNode* node = list->tail->next, * head;
 		while (node->next != list->tail) {
 			node = node->next;
 		}
@@ -80,16 +80,16 @@ void sllcircle_pop_back(SLLCircle* list){
 	}
 }
 
-void sllcircle_delete_where(SLLCircle* list, const int value){
+void sllcircular_delete_where(SLLCircular* list, const int value) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next && list->tail->data == value) {
 		free(list->tail);
 		list->tail = NULL;
 	}
-	else if (list->tail->next->data == value) sllcircle_pop_front(list);
-	else if (list->tail->data == value) sllcircle_pop_back(list);
+	else if (list->tail->next->data == value) sllcircular_pop_front(list);
+	else if (list->tail->data == value) sllcircular_pop_back(list);
 	else {
-		for (SLLNode *pred = list->tail->next, *curr = pred->next; curr != list->tail; pred = curr, curr = curr->next) {
+		for (SLLNode* pred = list->tail->next, *curr = pred->next; curr != list->tail; pred = curr, curr = curr->next) {
 			if (curr->data == value) {
 				pred->next = curr->next;
 				free(curr);

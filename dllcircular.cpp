@@ -1,13 +1,13 @@
-#include "dllcircle.hpp"
+#include "dllcircular.hpp"
 
 template<class T>
-Doubly::Node<T> Circle::DoublyList<T>::getTail() const {
+Doubly::Node<T> Circular::DoublyList<T>::getTail() const {
 	if (!tail) throw "Error from Circle::DoublyList<T>::getTail(): tried to dereference null pointer.";
 	return *tail;
 }
 
 template<class T>
-void Circle::DoublyList<T>::forEach(std::function<void(const T&)> func, const bool&& reverse) const noexcept {
+void Circular::DoublyList<T>::forEach(std::function<void(const T&)> func, const bool&& reverse) const noexcept {
 	if (!tail) return;
 	if (tail == tail->next) func(tail->data);
 	else {
@@ -20,7 +20,7 @@ void Circle::DoublyList<T>::forEach(std::function<void(const T&)> func, const bo
 }
 
 template<class T>
-void Circle::DoublyList<T>::pushFront(const T value) noexcept {
+void Circular::DoublyList<T>::pushFront(const T value) noexcept {
 	if (!tail) {
 		tail = new Doubly::Node<T>(value);
 		tail->next = tail->pred = tail;
@@ -33,7 +33,7 @@ void Circle::DoublyList<T>::pushFront(const T value) noexcept {
 }
 
 template<class T>
-void Circle::DoublyList<T>::pushBack(const T value) noexcept {
+void Circular::DoublyList<T>::pushBack(const T value) noexcept {
 	Doubly::Node<T>* node = new Doubly::Node<T>(value);
 	if (!tail) {
 		tail = node;
@@ -49,7 +49,7 @@ void Circle::DoublyList<T>::pushBack(const T value) noexcept {
 }
 
 template<class T>
-void Circle::DoublyList<T>::popFront() noexcept {
+void Circular::DoublyList<T>::popFront() noexcept {
 	if (!tail) return;
 	if (tail == tail->next) {
 		delete tail;
@@ -64,7 +64,7 @@ void Circle::DoublyList<T>::popFront() noexcept {
 }
 
 template<class T>
-void Circle::DoublyList<T>::popBack() noexcept {
+void Circular::DoublyList<T>::popBack() noexcept {
 	if (!tail) return;
 	if (tail == tail->next) {
 		delete tail;
@@ -80,7 +80,7 @@ void Circle::DoublyList<T>::popBack() noexcept {
 }
 
 template<class T>
-void Circle::DoublyList<T>::deleteWhere(const T value) noexcept {
+void Circular::DoublyList<T>::deleteWhere(const T value) noexcept {
 	if (!tail) return;
 	if (tail == tail->next && tail->data == value) {
 		delete tail;
@@ -103,14 +103,14 @@ void Circle::DoublyList<T>::deleteWhere(const T value) noexcept {
 }
 
 template<class T>
-Circle::DoublyList<T>::~DoublyList() {
+Circular::DoublyList<T>::~DoublyList() {
 	if (!tail) return;
 	if (tail == tail->next) {
 		delete tail;
 		tail = nullptr;
 		return;
 	}
-	Doubly::Node<T>* head = tail->next, *temp = head->next;
+	Doubly::Node<T>* head = tail->next, * temp = head->next;
 	do {
 		delete head;
 		head = temp;

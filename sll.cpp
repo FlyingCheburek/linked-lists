@@ -12,6 +12,16 @@ Singly::Node<T>::Node(const T data, Singly::Node<T>* next) noexcept {
 }
 
 template<class T>
+Singly::List<T>::List() noexcept {
+
+}
+
+template<class T>
+Singly::List<T>::List(const std::forward_list<T>&& list) noexcept {
+
+}
+
+template<class T>
 Singly::Node<T> Singly::List<T>::getHead() const {
 	if (!head) throw "Error from Singly::List<T>::getHead(): tried to dereference null pointer.";
 	return *head;

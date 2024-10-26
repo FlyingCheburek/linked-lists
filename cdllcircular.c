@@ -1,8 +1,8 @@
-#include "cdllcircle.h"
+#include "cdllcircular.h"
 #include <stdlib.h>
 #include <stdio.h>
 
-void dllcircle_destroy(DLLCircle* list){
+void dllcircular_destroy(DLLCircular* list) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next) {
 		free(list->tail);
@@ -21,7 +21,7 @@ void dllcircle_destroy(DLLCircle* list){
 	}
 }
 
-void dllcircle_push_front(DLLCircle* list, const int value){
+void dllcircular_push_front(DLLCircular* list, const int value) {
 	DLLNode* node = (DLLNode*)malloc(sizeof(DLLNode));
 	node->data = value;
 	node->next = NULL;
@@ -39,7 +39,7 @@ void dllcircle_push_front(DLLCircle* list, const int value){
 	}
 }
 
-void dllcircle_push_back(DLLCircle* list, const int value){
+void dllcircular_push_back(DLLCircular* list, const int value) {
 	DLLNode* node = (DLLNode*)malloc(sizeof(DLLNode));
 	node->data = value;
 	node->next = NULL;
@@ -58,7 +58,7 @@ void dllcircle_push_back(DLLCircle* list, const int value){
 	}
 }
 
-void dllcircle_pop_front(DLLCircle* list){
+void dllcircular_pop_front(DLLCircular* list) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next) {
 		free(list->tail);
@@ -72,7 +72,7 @@ void dllcircle_pop_front(DLLCircle* list){
 	}
 }
 
-void dllcircle_pop_back(DLLCircle* list){
+void dllcircular_pop_back(DLLCircular* list) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next) {
 		free(list->tail);
@@ -87,14 +87,14 @@ void dllcircle_pop_back(DLLCircle* list){
 	}
 }
 
-void dllcircle_delete_where(DLLCircle* list, const int value){
+void dllcircular_delete_where(DLLCircular* list, const int value) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next && list->tail->data == value) {
 		free(list->tail);
 		list->tail = NULL;
 	}
-	else if (list->tail->next->data == value) dllcircle_pop_front(list);
-	else if (list->tail->data == value) dllcircle_pop_back(list);
+	else if (list->tail->next->data == value) dllcircular_pop_front(list);
+	else if (list->tail->data == value) dllcircular_pop_back(list);
 	else {
 		DLLNode* node = list->tail->next;
 		do {

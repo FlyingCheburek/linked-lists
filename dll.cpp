@@ -36,7 +36,7 @@ Doubly::Node<T> Doubly::List<T>::getTail() const {
 }
 
 template<class T>
-void Doubly::List<T>::forEach(std::function<void(const T&)> func, const bool&& reverse) const noexcept{
+void Doubly::List<T>::forEach(std::function<void(const T&)> func, const bool&& reverse) const noexcept {
 	if (!reverse) {
 		for (Doubly::Node<T>* node = head; node; node = node->next) func(node->data);
 	}
@@ -92,7 +92,7 @@ void Doubly::List<T>::popBack() noexcept {
 }
 
 template<class T>
-void Doubly::List<T>::deleteWhere(const T value) noexcept{
+void Doubly::List<T>::deleteWhere(const T value) noexcept {
 	if (!head) return;
 	if (head->data == value) popFront();
 	else if (tail->data == value) popBack();

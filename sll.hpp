@@ -1,31 +1,32 @@
 #pragma once
 #include <functional>
+#include <forward_list>
 
-namespace Doubly {
+namespace Singly {
 	template<class T>
 	struct Node {
 		T data;
-		Node<T>* next, *pred;
-
+		Node<T>* next;
 		Node() noexcept;
-		Node(const T data, Node<T>* next = nullptr, Node<T>* pred = nullptr) noexcept;
+		Node(const T data, Node<T>* next = nullptr) noexcept;
 	};
 
 	template<class T>
 	class List {
 	private:
-		Node<T>* head = nullptr, * tail = nullptr;
+		Node<T>* head, * tail;
 
 	public:
-		~List() noexcept;
-
+		List() noexcept;
+		List(const std::forward_list<T>&& list) noexcept;
 		Node<T> getHead() const;
-		Node<T> getTail() const; 
-		void forEach(std::function<void(const T&)> func, const bool&& reverse = false) const noexcept;
+		Node<T> getTail() const;
+		void forEach(std::function<void(const T&)> func) const noexcept;
 		void pushFront(const T value) noexcept;
 		void pushBack(const T value) noexcept;
 		void popFront() noexcept;
 		void popBack() noexcept;
 		void deleteWhere(const T value) noexcept;
+		~List() noexcept;
 	};
 }

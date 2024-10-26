@@ -1,12 +1,13 @@
 #pragma once
+#pragma once
 #include "sll.hpp"
 
-namespace Circle {
+namespace Circular {
 	template<class T>
 	class SinglyList {
 	private:
 		Singly::Node<T>* tail;
-	
+
 	public:
 		Singly::Node<T> getTail() const;
 		void forEach(std::function<void(const T&)> func) const noexcept;
@@ -20,3 +21,4 @@ namespace Circle {
 		~SinglyList();
 	};
 }
+

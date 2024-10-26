@@ -2,7 +2,7 @@
 
 typedef struct DLLNode {
     int data;
-    struct DLLNode* next, *pred;
+    struct DLLNode* next, * pred;
 } DLLNode;
 
 typedef struct DLL {
