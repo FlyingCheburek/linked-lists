@@ -6,9 +6,11 @@ namespace Circular {
 	template<class T>
 	class SinglyList {
 	private:
-		Singly::Node<T>* tail;
+		Singly::Node<T>* tail = nullptr;
 
 	public:
+		SinglyList() noexcept;
+		SinglyList(const std::forward_list<T>&& list) noexcept;
 		Singly::Node<T> getTail() const;
 		void forEach(std::function<void(const T&)> func) const noexcept;
 

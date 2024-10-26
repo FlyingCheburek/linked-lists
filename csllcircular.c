@@ -1,6 +1,10 @@
 #include "csllcircular.h"
 #include <stdlib.h>
 
+void sllcircular_push_values(SLLCircular* list, const int* values, const size_t size){
+	for (size_t x = 0; x < size; ++x) sllcircular_push_back(list, values[x]);
+}
+
 void sllcircular_destroy(SLLCircular* list) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next) {

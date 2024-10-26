@@ -5,6 +5,7 @@ typedef struct SLLCircular {
 	SLLNode* tail;
 } SLLCircular;
 
+void sllcircular_push_values(SLLCircular* list, const int* values, const size_t size);
 void sllcircular_destroy(SLLCircular* list);
 void sllcircular_push_front(SLLCircular* list, const int value);
 void sllcircular_push_back(SLLCircular* list, const int value);

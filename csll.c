@@ -1,6 +1,10 @@
 #include "csll.h"
 #include <stdlib.h>
 
+void sll_push_values(SLL* list, const int* values, const size_t size) {
+	for (size_t x = 0; x < size; ++x) sll_push_back(list, values[x]);
+}
+
 void sll_destroy(SLL* list) {
 	SLLNode* node;
 	while (list->head) {

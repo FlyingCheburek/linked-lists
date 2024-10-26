@@ -12,13 +12,13 @@ Singly::Node<T>::Node(const T data, Singly::Node<T>* next) noexcept {
 }
 
 template<class T>
-Singly::List<T>::List() noexcept {
-
-}
+Singly::List<T>::List() noexcept {  }
 
 template<class T>
 Singly::List<T>::List(const std::forward_list<T>&& list) noexcept {
-
+	for (const T& el : list) {
+		pushBack(el);
+	}
 }
 
 template<class T>

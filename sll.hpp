@@ -14,7 +14,7 @@ namespace Singly {
 	template<class T>
 	class List {
 	private:
-		Node<T>* head, * tail;
+		Node<T>* head = nullptr, * tail = nullptr;
 
 	public:
 		List() noexcept;

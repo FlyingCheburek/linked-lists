@@ -9,6 +9,7 @@ typedef struct SLL {
     SLLNode* head, * tail;
 } SLL;
 
+void sll_push_values(SLL* list, const int* values, const size_t size);
 void sll_destroy(SLL* list);
 void sll_push_front(SLL* list, const int value);
 void sll_push_back(SLL* list, const int value);

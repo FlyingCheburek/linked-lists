@@ -1,6 +1,14 @@
 #include "sllcircular.hpp"
 
 template<class T>
+Circular::SinglyList<T>::SinglyList() noexcept {  }
+
+template<class T>
+Circular::SinglyList<T>::SinglyList(const std::forward_list<T>&& list) noexcept {
+	for (const T& el : list) pushBack(el);
+}
+
+template<class T>
 Singly::Node<T> Circular::SinglyList<T>::getTail() const {
 	if (!tail) throw "Error from Circle::SinglyList<T>::getTail(): tried to dereference null pointer.";
 	return *tail;
