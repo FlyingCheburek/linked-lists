@@ -5,6 +5,7 @@ typedef struct DLLCircular {
 	DLLNode* tail;
 } DLLCircular;
 
+void dllcircular_push_values(DLLCircular* list, const int* values, const size_t size);
 void dllcircular_destroy(DLLCircular* list);
 void dllcircular_push_front(DLLCircular* list, const int value);
 void dllcircular_push_back(DLLCircular* list, const int value);

@@ -24,6 +24,14 @@ Doubly::List<T>::~List() noexcept {
 }
 
 template<class T>
+Doubly::List<T>::List() noexcept {  }
+
+template<class T>
+Doubly::List<T>::List(const std::forward_list<T>&& list) noexcept {
+	for (const T& el : list) pushBack(el);
+}
+
+template<class T>
 Doubly::Node<T> Doubly::List<T>::getHead() const {
 	if (!head) throw "Error from Doubly::List<T>::getHead(): tried to dereference null pointer.";
 	return *head;

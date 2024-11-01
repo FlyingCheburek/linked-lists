@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+void dllcircular_push_values(DLLCircular* list, const int* values, const size_t size){
+	for (size_t x = 0; x < size; x++) dllcircular_push_back(list, values[x]);
+}
+
 void dllcircular_destroy(DLLCircular* list) {
 	if (!list->tail) return;
 	if (list->tail == list->tail->next) {

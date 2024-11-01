@@ -9,6 +9,7 @@ typedef struct DLL {
     DLLNode* head, * tail;
 } DLL;
 
+void dll_push_values(DLL* list, const int* values, const size_t size);
 void dll_destroy(DLL* list);
 void dll_push_front(DLL* list, const int value);
 void dll_push_back(DLL* list, const int value);

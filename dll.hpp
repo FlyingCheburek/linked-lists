@@ -1,5 +1,6 @@
 #pragma once
 #include <functional>
+#include <forward_list>
 
 namespace Doubly {
 	template<class T>
@@ -17,6 +18,8 @@ namespace Doubly {
 		Node<T>* head = nullptr, * tail = nullptr;
 
 	public:
+		List() noexcept;
+		List(const std::forward_list<T>&& list) noexcept;
 		~List() noexcept;
 
 		Node<T> getHead() const;

@@ -1,6 +1,10 @@
 #include "cdll.h"
 #include <stdlib.h>
 
+void dll_push_values(DLL* list, const int* values, const size_t size){
+	for (size_t x = 0; x < size; ++x) dll_push_back(list, values[x]);
+}
+
 void dll_destroy(DLL* list) {
 	DLLNode* node;
 	while (list->head) {

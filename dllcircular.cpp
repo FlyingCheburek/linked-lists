@@ -1,6 +1,34 @@
 #include "dllcircular.hpp"
 
 template<class T>
+Circular::DoublyList<T>::DoublyList() noexcept {  }
+
+template<class T>
+Circular::DoublyList<T>::DoublyList(const std::forward_list<T>&& list) noexcept {
+	for (const T& el : list) pushBack(el);
+}
+
+template<class T>
+Circular::DoublyList<T>::~DoublyList() noexcept {
+	if (!tail) return;
+	if (tail == tail->next) {
+		delete tail;
+		tail = nullptr;
+		return;
+	}
+	Doubly::Node<T>* head = tail->next, * temp = head->next;
+	do {
+		delete head;
+		head = temp;
+		if (temp) temp = temp->next;
+	} while (head != tail);
+	if (tail) {
+		delete tail;
+		tail = nullptr;
+	}
+}
+
+template<class T>
 Doubly::Node<T> Circular::DoublyList<T>::getTail() const {
 	if (!tail) throw "Error from Circle::DoublyList<T>::getTail(): tried to dereference null pointer.";
 	return *tail;
@@ -99,25 +127,5 @@ void Circular::DoublyList<T>::deleteWhere(const T value) noexcept {
 			}
 			node = node->next;
 		} while (node != tail->next);
-	}
-}
-
-template<class T>
-Circular::DoublyList<T>::~DoublyList() {
-	if (!tail) return;
-	if (tail == tail->next) {
-		delete tail;
-		tail = nullptr;
-		return;
-	}
-	Doubly::Node<T>* head = tail->next, * temp = head->next;
-	do {
-		delete head;
-		head = temp;
-		if (temp) temp = temp->next;
-	} while (head != tail);
-	if (tail) {
-		delete tail;
-		tail = nullptr;
 	}
 }
